@@ -1,0 +1,9 @@
+{
+  "name": "wake-on-las-for-google-apps",
+  "description": "wake-on-las-for-google-apps",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x"
+  }
+}
