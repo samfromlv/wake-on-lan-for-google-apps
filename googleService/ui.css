@@ -1,11 +1,7 @@
-.hidden {
-    /* display: none;*/
-}
 body {
     text-align:center;
-    font: normal 12px "helvetica neue", helvetica, arial, sans-serif;
+    font: normal 12px"helvetica neue", helvetica, arial, sans-serif;
 }
-
 button {
     background: #e3e3e3;
     border: 1px solid #bbb;
@@ -13,7 +9,7 @@ button {
     -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
     box-shadow: inset 0 0 1px 1px #f6f6f6;
     color: #333;
-    font: bold 12px/1 "helvetica neue", helvetica, arial, sans-serif;
+    font: bold 12px/1"helvetica neue", helvetica, arial, sans-serif;
     padding: 8px 0 9px;
     text-align: center;
     text-shadow: 0 1px 0 #fff;
@@ -32,18 +28,13 @@ button:active {
     box-shadow: inset 0 0 1px 1px #e3e3e3;
     color: #000;
 }
-
-button.long
-{
+button.long {
     width: 150px;
 }
-
 a {
-  margin:0px 5px;  
+    margin:0px 5px;
 }
-
-input[type=text]
-{
+input[type=text] {
     background: white;
     border: 1px solid #DDD;
     border-radius: 5px;
@@ -52,12 +43,9 @@ input[type=text]
     padding: 5px 10px;
     outline: none;
 }
-
-.editPanel
-{
+.editPanel {
     text-align: right;
 }
-
 .panel {
     margin-top: 2em;
     padding: 10px;
@@ -66,21 +54,132 @@ input[type=text]
     border: 1px gray solid;
     background: solid;
 }
-
 .buttonPanel {
     margin: 10px 0 0;
 }
-
 .macValidation {
     margin-top:10px;
     padding: 10px;
     border-radius: 3px;
     border: 1px red dotted;
 }
-
 .statusPanel {
     margin-top:10px;
     padding: 10px;
     border-radius: 3px;
     border: 1px gray dotted;
+}
+.bubblingG {
+    text-align: center;
+    width:100%;
+    height:50px;
+}
+.bubblingG span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin: 25px auto;
+    background: #000000;
+    -moz-border-radius: 50px;
+    -moz-animation: bubblingG 1.6s infinite alternate;
+    -webkit-border-radius: 50px;
+    -webkit-animation: bubblingG 1.6s infinite alternate;
+    -o-border-radius: 50px;
+    -o-animation: bubblingG 1.6s infinite alternate;
+    -ms-border-radius: 50px;
+    -ms-animation: bubblingG 1.6s infinite alternate;
+    border-radius: 50px;
+    animation: bubblingG 1.6s infinite alternate;
+}
+#bubblingG_1 {
+    -moz-animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+    -o-animation-delay: 0s;
+    -ms-animation-delay: 0s;
+    animation-delay: 0s;
+}
+#bubblingG_2 {
+    -moz-animation-delay: 0.48s;
+    -webkit-animation-delay: 0.48s;
+    -o-animation-delay: 0.48s;
+    -ms-animation-delay: 0.48s;
+    animation-delay: 0.48s;
+}
+#bubblingG_3 {
+    -moz-animation-delay: 0.96s;
+    -webkit-animation-delay: 0.96s;
+    -o-animation-delay: 0.96s;
+    -ms-animation-delay: 0.96s;
+    animation-delay: 0.96s;
+}
+@-moz-keyframes bubblingG {
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color:#000000;
+        -moz-transform: translateY(0);
+    }
+    100% {
+        width: 24px;
+        height: 24px;
+        background-color:#FFFFFF;
+        -moz-transform: translateY(-21px);
+    }
+}
+@-webkit-keyframes bubblingG {
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color:#000000;
+        -webkit-transform: translateY(0);
+    }
+    100% {
+        width: 24px;
+        height: 24px;
+        background-color:#FFFFFF;
+        -webkit-transform: translateY(-21px);
+    }
+}
+@-o-keyframes bubblingG {
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color:#000000;
+        -o-transform: translateY(0);
+    }
+    100% {
+        width: 24px;
+        height: 24px;
+        background-color:#FFFFFF;
+        -o-transform: translateY(-21px);
+    }
+}
+@-ms-keyframes bubblingG {
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color:#000000;
+        -ms-transform: translateY(0);
+    }
+    100% {
+        width: 24px;
+        height: 24px;
+        background-color:#FFFFFF;
+        -ms-transform: translateY(-21px);
+    }
+}
+@keyframes bubblingG {
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color:#000000;
+        transform: translateY(0);
+    }
+    100% {
+        width: 24px;
+        height: 24px;
+        background-color:#FFFFFF;
+        transform: translateY(-21px);
+    }
 }

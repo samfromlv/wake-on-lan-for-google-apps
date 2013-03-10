@@ -1,0 +1,9 @@
+{
+  "name": "google-apps-wake-on-lan googleService",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-preprocess": "~2.0.0",
+    "grunt-html-prettyprinter": "~1.2.0"
+  }
+}

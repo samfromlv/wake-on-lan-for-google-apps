@@ -1,25 +1,46 @@
 <html>
     
     <head>
+        <!-- @exclude -->
         <link rel="stylesheet" href="ui.css" type="text/css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
         <script type="text/javascript" src="ui.js"></script>
+        <!-- @endexclude -->
+        <!-- @include include.html -->
     </head>
     
     <body>
-        <div class="panel hidden">
-            <button type="button" class="long">Wake my PC</button>
-            <a href="#">Settings</a>
-            <div class="statusPanel statusOk hidden">Request sent.</div>
-        </div>
-        <div class="editPanel panel hidden">
-            <label for="macAddress">Mac Address:</label>
-            <input type="text" id="macAddress" placeholder="00:11:22:33:44:55"
-            />
-            <div class="macValidation hidden">Please use 00:11:22:33:44:55 format for MAC address</div>
-            <div class="buttonPanel">
-                <button type="button">Save</button>
-                <button type="button">Cancel</button>
+        <div id="all" style="display:none">
+            <div class="panel" id="wakePanel">
+                <button type="button" class="long" id="wakeButton">Wake my PC</button>
+                <a href="#" id="settingsLink">Settings</a>
+                <div class="statusPanel statusOk" id="wakeStatus">Request sent.</div>
+                <div class="bubblingG" id="wakeSpinner">
+                    <span id="bubblingG_1"></span>
+                    <span id="bubblingG_2"></span>
+                    <span id="bubblingG_3"></span>
+                </div>
             </div>
+            <div class="editPanel panel" id="settingsPanel">
+                <label for="macAddress">Mac Address:</label>
+                <input type="text" id="macAddress" placeholder="00:11:22:33:44:55"
+                />
+                <div class="macValidation" id="macValidation">Please use 00:11:22:33:44:55 format for MAC address</div>
+                <div class="buttonPanel">
+                    <button type="button" id="save">Save</button>
+                    <button type="button" id="cancel">Cancel</button>
+                </div>
+                <div class="bubblingG" id="settingsSpinner">
+                    <span id="bubblingG_1"></span>
+                    <span id="bubblingG_2"></span>
+                    <span id="bubblingG_3"></span>
+                </div>
+            </div>
+        </div>
+        <div class="bubblingG" id="loadingSpinner">
+            <span id="bubblingG_1"></span>
+            <span id="bubblingG_2"></span>
+            <span id="bubblingG_3"></span>
         </div>
     </body>
 
