@@ -1,5 +1,5 @@
 {
-  "name": "google-apps-wake-on-lan googleService",
+  "name": "google-apps-wake-on-lan-sgoogleService",
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.0",
