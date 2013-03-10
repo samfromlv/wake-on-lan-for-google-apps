@@ -4,12 +4,12 @@ Secure solution to wake PC in internal network using Google Apps script deployed
 and nodejs backend service. This will allow you to wake your PC without connecting to VPN and if you use 
 Chrome Remote Desktop escape from using VPN at all.
 
-Google Apps script:
+##Google Apps script:
 
 * Allows users to save their mac address and with single button click wake PC
 * If deployed on Google Site should set to be accessable only by domain users
     
-Nodejs Wake service:
+##Nodejs Wake service:
 
 * Accepts requests from Google servers and wakes PCs sending magic packets
 * Verifies validity of all requests using hashing
@@ -17,7 +17,7 @@ Nodejs Wake service:
     
 #Installation
 
-Google Apps script
+##Google Apps script
 
 1. Clone git repo
 2. cd googleService
@@ -32,7 +32,7 @@ Make sure you create them under Project Properites not User Proprties.
 * wake_service_url - URL of your nodejs service that you deploy after a bit
 * wake_service_secret - Random string used to sign requests set to wake service.
 
-Nodejs wake service
+##Nodejs wake service
 
 Configure settings in config.js
 * secret - same as wake_service_secret setting for Google Apps script
@@ -40,7 +40,7 @@ Configure settings in config.js
 * ip - use this interface
 
 Start service
-        node server.js
+>node server.js
     
 
 
