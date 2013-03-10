@@ -3,7 +3,7 @@
     <head>
         <!-- @exclude -->
         <link rel="stylesheet" href="ui.css" type="text/css" />
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
         <script type="text/javascript" src="ui.js"></script>
         <!-- @endexclude -->
         <!-- @include include.html -->
@@ -15,10 +15,7 @@
                 <button type="button" class="long" id="wakeButton">Wake my PC</button>
                 <a href="#" id="settingsLink">Settings</a>
                 <div class="statusPanel statusOk" id="wakeStatus">Request sent.</div>
-                <div class="bubblingG" id="wakeSpinner">
-                    <span id="bubblingG_1"></span>
-                    <span id="bubblingG_2"></span>
-                    <span id="bubblingG_3"></span>
+                <div class="spinner" id="wakeSpinner">
                 </div>
             </div>
             <div class="editPanel panel" id="settingsPanel">
@@ -30,17 +27,11 @@
                     <button type="button" id="save">Save</button>
                     <button type="button" id="cancel">Cancel</button>
                 </div>
-                <div class="bubblingG" id="settingsSpinner">
-                    <span id="bubblingG_1"></span>
-                    <span id="bubblingG_2"></span>
-                    <span id="bubblingG_3"></span>
+                <div class="spinner" id="settingsSpinner">
                 </div>
             </div>
         </div>
-        <div class="bubblingG" id="loadingSpinner">
-            <span id="bubblingG_1"></span>
-            <span id="bubblingG_2"></span>
-            <span id="bubblingG_3"></span>
+        <div class="spinner" id="loadingSpinner">
         </div>
     </body>
 

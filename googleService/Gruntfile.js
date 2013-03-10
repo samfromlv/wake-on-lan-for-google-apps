@@ -12,12 +12,17 @@ module.exports = function(grunt) {
             html: {
                 src: 'ui.html',
                 dest: 'deploy/tmp/deploy.html',
-            }
+            },
+            multifile: {
+                files: {
+                    'deploy/backend.gs': 'backend.gs.js',
+                }
+            },
         },
         "html-prettyprinter": {
             single: {
                 src: 'deploy/tmp/deploy.html',
-                dest: 'deploy/deploy.html'
+                dest: 'deploy/ui.html'
             }
         }
     });

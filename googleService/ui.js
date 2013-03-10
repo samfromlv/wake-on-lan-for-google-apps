@@ -1,7 +1,5 @@
 $(function() {
     ctrl.setup();
-    $('#loadingSpinner').hide();
-    $('#all').show();
 });
 
 var ctrl = (function() {
@@ -12,7 +10,7 @@ var ctrl = (function() {
     // @exclude
     */
     // @endexclude
-    
+
     // @exclude
     function testDelegate() {
         var sCb;
@@ -60,7 +58,7 @@ var ctrl = (function() {
     function setup() {
         $('#wakeButton').click(function() {
             $('#wakeStatus').hide();
-            $('#wakeSpinner').show();
+            showSpinner('#wakeSpinner');
             delegate.withSuccessHandler(function(status) {
                 if (!status.error) {
                     showWakeStatus('Wake packet sent');
@@ -79,7 +77,7 @@ var ctrl = (function() {
         });
 
         function unhideWakeStatus(panel) {
-            $('#wakeSpinner').hide();
+            hideSpinner();
             panel.show();
         }
 
@@ -101,7 +99,7 @@ var ctrl = (function() {
 
         function showWakePanel() {
             $('#settingsPanel').hide();
-            $('#wakeSpinner').hide();
+            hideSpinner();
             $('#wakeStatus').hide();
 
             $('#wakePanel').show();
@@ -119,7 +117,7 @@ var ctrl = (function() {
             $('#save').show();
             $('#macValidation').hide();
             $('#macAddress').val(macAddress);
-            $('#settingsSpinner').hide();
+            hideSpinner();
 
             $('#settingsPanel').show();
         }
@@ -144,7 +142,7 @@ var ctrl = (function() {
                 return;
             }
             $('#macValidation').hide();
-            $('#settingsSpinner').show();
+            showSpinner('#settingsSpinner');
             $('#save').hide();
             $('#cancel').hide();
             delegate.withSuccessHandler(function(status) {
@@ -153,27 +151,21 @@ var ctrl = (function() {
                     showWakePanel();
                     showWakeStatus('Settings saved');
                 }
-                else
-                {
+                else {
                     showWakePanel();
                     showWakeError('Error while saving settings - ' + status.error);
                 }
             }).withFailureHandler(function(error) {
-                $('settingsSpinner').hide();
-                $('save').show();
-                $('cancel').show();
-                alert('Error occured while saving settings. Please try again.');
-            }).saveSettings({mac:newMac});
+                showWakePanel();
+                showWakeError('Error occured while saving settings. Please try again.');
+            }).saveSettings({
+                mac: newMac
+            });
         });
 
-        $('#settingsPanel').hide();
-        $('#wakeButton').hide();
-        $('#settingsLink').hide();
-        $('#wakeStatus').hide();
-        $('#wakePanel').show();
-        $('#wakeSpinner').show();
-
         delegate.withSuccessHandler(function(data) {
+            $('#all').show();
+
             if (!data.error) {
                 macAddress = data.mac;
                 $('#wakeButton').show();
@@ -182,14 +174,55 @@ var ctrl = (function() {
                 if (!macAddress || macAddress.length === 0) {
                     showSettingsPanel();
                 }
+                else {
+                    showWakePanel();
+                }
             }
-            else
-            {
-                showWakeError("Setting loading error - " + data.error);
+            else {
+                showWakeError("Settings load error - " + data.error);
             }
         }).withFailureHandler(function(error) {
+            $('#all').show();
             showWakeError("Connection error - " + error + ". Please refresh this page.");
         }).setup();
+
+        var spinner = {
+            timeout: 0,
+            id: null,
+            count: 0
+        };
+
+
+        function showSpinner(id) {
+            hideSpinner();
+
+            spinner = {
+                id: id,
+                count: 1
+            };
+            spinner.timeout = setInterval(function() {
+                var text = '';
+                for (var i = 0; i < spinner.count; i++) {
+                    text += '.';
+                }
+                $(spinner.id).text(text);
+                if (spinner.count < 5) spinner.count++;
+                else spinner.count = 0;
+            }, 200);
+            $(spinner.id).show();
+        }
+
+        function hideSpinner() {
+            if (spinner) {
+                clearInterval(spinner.timeout);
+                spinner = null;
+            }
+            $('#loadingSpinner').hide();
+            $('#settingsSpinner').hide();
+            $('#wakeSpinner').hide();
+        }
+
+        showSpinner('#loadingSpinner');
     }
     return {
         setup: setup

@@ -2,6 +2,8 @@
 var wol = require('wake_on_lan');
 var express = require('express');
 var validator = require('./validator.js');
+var config = require('./config.js');
+
 var app = express();
 
 
@@ -33,4 +35,4 @@ app.get('/kill', function(req, res) {
     res.send('Killed');
     process.exit();
 });
-app.listen(process.env.PORT, process.env.IP);
+app.listen(process.env.PORT || config.port, process.env.IP || config.ip);
