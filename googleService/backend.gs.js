@@ -79,9 +79,12 @@ function getWakePayload_(mac) {
     var dataForHash = mac + nonce.toString() + timestamp.toString();
     var token = Utilities.base64Encode(Utilities.computeHmacSha256Signature(dataForHash, secret));
 
-    var body = "mac=" + urlEncode_(mac) + "&nonce=" + urlEncode_(nonce) + "&timestamp=" + urlEncode_(timestamp) + "&token=" + urlEncode_(token);
-
-    return body;
+    return {
+        "mac": mac,
+        "nonce": nonce.toString(),
+        "timestamp": timestamp.toString(),
+        "token": urlEncode_(token)
+    };
 }
 
 function urlEncode_(s) {
