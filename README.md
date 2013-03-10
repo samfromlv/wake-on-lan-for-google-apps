@@ -1,18 +1,47 @@
-# README for a newly created project.
+# Wake on lan for Google Apps
 
-There are a couple of things you should do first, before you can use all of Git's power:
+Secure solution to wake PC in internal network using Google Apps script deployed as web application
+and nodejs backend service. This will allow you to wake your PC without connecting to VPN and if you use 
+Chrome Remote Desktop escape from using VPN at all.
 
-  * Add a remote to this project: in the Cloud9 IDE command line, you can execute the following commands
-    `git remote add [remote name] [remote url (eg. 'git@github.com:/ajaxorg/node_chat')]` [Enter]
-  * Create new files inside your project
-  * Add them to to Git by executing the following command
-    `git add [file1, file2, file3, ...]` [Enter]
-  * Create a commit which can be pushed to the remote you just added
-    `git commit -m 'added new files'` [Enter]
-  * Push the commit the remote
-    `git push [remote name] master` [Enter]
+Google Apps script:
+    * Allows users to save their mac address and with single button click wake PC
+    * If deployed on Google Site should set to be accessable only by domain users
+    
+Nodejs Wake service:
+    * Accepts requests from Google servers and wakes PCs sending magic packets
+    * Verifies validity of all requests using hashing
+    * Should be located in the same network as wake targets
+    
+#Installation
 
-That's it! If this doesn't work for you, please visit the excellent resources from [Github.com](http://help.github.com) and the [Pro Git](http://http://progit.org/book/) book.
-If you can't find your answers there, feel free to ask us via Twitter (@cloud9ide), [mailing list](groups.google.com/group/cloud9-ide) or IRC (#cloud9ide on freenode).
+Google Apps script
 
-Happy coding!
+1) Clone git repo
+2) cd googleService
+3) ./build.sh
+
+This will create two files in googleService/deploy folder which should be uploaded to you Apps script.
+    * backend.gs
+    * ui.html
+
+Next you need to create two settings for your Google Apps script. 
+Make sure you create them under Project Properites not User Proprties.
+    * wake_service_url - URL of your nodejs service that you deploy after a bit
+    * wake_service_secret - Random string used to sign requests set to wake service.
+
+Nodejs wake service
+
+Configure settings in config.js
+    * secret - same as wake_service_secret setting for Google Apps script
+    * port - listen on this port
+    * ip - use this interface
+
+Start service
+    ' node server.js
+    
+
+
+
+
+
