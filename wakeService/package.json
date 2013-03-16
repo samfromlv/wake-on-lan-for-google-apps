@@ -1,6 +1,6 @@
 {
-  "name": "wake-on-las-for-google-apps",
-  "description": "wake-on-las-for-google-apps",
+  "name": "wake-on-lan-http-service",
+  "description": "Http service that wraps wake on lan",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

@@ -1,0 +1,10 @@
+{
+  "name": "wake-on-lan-http-client",
+  "description": "Client for wake on lan http service (wake-on-lan-http-service)",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "crypto": "0.0.3",
+    "optimist": "~0.3.5"
+  }
+}
