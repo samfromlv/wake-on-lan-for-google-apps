@@ -6,6 +6,7 @@
   "dependencies": {
     "express": "3.x",
     "wake_on_lan": "0.0.3",
-    "crypto": "0.0.3"
+    "crypto": "0.0.3",
+    "memory-cache": "0.0.5"
   }
 }
